@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% if title %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.css') }}">
+    <title>{{title}} - LIB APP</title>
+    {% else %}
+    <title> Welcome to My Library</title>
+    {% endif %}
+</head>
+<body>
+    <div> Microblog:
+        <a href="{{ url_for('index') }}">Home</a>
+        {% if current_user.is_anonymous %}
+        <a href="{{ url_for('login') }}">Login</a>
+
+        {% else %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <a href="{{ url_for('add_post') }}">New Post</a>
+        <a href="{{ url_for('user_profile' , username=current_user.username) }}">Profile</a>
+        {% endif %}
+    </div>
+    <div>
+        {% with data = weather_app() %}
+        {% endwith %}
+        Weather: <b>{{ data }}</b>
+    </div>
+    <hr>
+    {#
+<!--    {% with messages = get_flashed_messages() %}-->
+<!--    {% if messages %}-->
+<!--    <ul>-->
+<!--        {% for message in messages %}-->
+<!--        <li> {{ messages }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--    {% endif %}-->
+<!--    {% endwith %}-->
+    #}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

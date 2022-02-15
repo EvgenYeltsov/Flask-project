@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1> Welcome to MicroBlog, {{ current_user.username }}!</h1>
+    {% for post in posts %}
+        <a>
+            <h2>{{ post['title'] }}</h2>
+            <h4>{{ post['body'] }}</h4>
+        </a>
+        <p> <{{ post.username }}</p>
+<p> Author:<b>{{ post.username }}</b> Date: <b>{{ post.timestamp.strftime("%Y-%m-%d  %H:%M:%S") }}</b></p>
+        <hr>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if message %}
+    <h3>{{ message }}</h3>
+{% else %}
+    <h1 style="text-align:center"  > New Post </h1>
+
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ current_user.username }} adding new post......
+        </p>
+        <dl> Title:
+        <dd> <input type="text" size="40" name="title"> </dd>
+        <dd> Text:
+        <dd> <textarea name="body" rows="5" cols="40"></textarea> </dd>
+        </dl>
+        <p>
+            {% for error in form.body.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+{% endif %}
+{% endblock %}

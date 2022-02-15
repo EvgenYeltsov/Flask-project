@@ -1,0 +1,10 @@
+WTForms~=3.0.1
+Flask~=2.0.2
+pip~=21.1.1
+MarkupSafe~=2.0.1
+Werkzeug~=2.0.2
+Jinja2~=3.0.3
+click~=8.0.3
+python-dotenv~=0.19.2
+itsdangerous~=2.0.1
+setuptools~=56.0.0
